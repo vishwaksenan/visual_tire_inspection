@@ -1,16 +1,25 @@
 # Visual Tire Inspection
 
-Using Computer vision techniques. We need 2 different dataset.
+## About the project
 
-1. X-Ray Image Dataset.
-2. Normal Image Dataset.
+This involves using computer vision techniques for finding the defect that is present in the tyre while manufacturing of tires. The project was done for Bridgestone with a specfication sheet. The specification sheet has been attached in this repository
 
-Decided to use AlexNet Architecture for our project.
-Decide the design of the web application.
+## Solved Defects
 
-### Things to learn
+1. Ink.
+2. Seperations.
+3. Scorch
+4. TWI
+5. Wobbling
 
-1. Alex-Net Architecture
-2. Django or Flask
-3. Types of defects
-4. Report Generation
+### Using Computer Vision Techniques, we eliminate the need fore database and work on some few imges and make the inspection done.
+
+### Web Application can be done to make it as a whole project. The application for these 5 defects are done using Django
+
+## Python Packages used
+
+1. OpenCV
+2. NumPy
+
+
+
