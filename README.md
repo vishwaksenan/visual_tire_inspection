@@ -20,6 +20,3 @@ This involves using computer vision techniques for finding the defect that is pr
 
 1. OpenCV
 2. NumPy
-
-
-
