@@ -1,7 +1,2 @@
-*.pyc
-tire_inspection/admin_app/__pycache__/*.pyc
-tire_inspection/admin_app/__pycache__/__init__.cpython-37.pyc
-*.ipynb
-tire_inspection/admin_app/__pycache__/views.cpython-37.pyc
-wobbling.ipynb
-wobbling.ipynb
+**/__pycache__/*.pyc
+**/*.ipynb
