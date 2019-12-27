@@ -9,10 +9,16 @@
 </head>
 
 <body>
-  <p>hello</p>
-  <form action="result/" method="post" enctype="multipart/form-data"> {% csrf_token %}
-    <input type="text" name="sample" id="s"><br><br>
-    <input type="file" accept=".png" name="test_file"><br><br>
+  <p>Ink Test</p>
+  <form action="ink/" method="post" enctype="multipart/form-data"> {% csrf_token %}
+    <input type="text" name="sample" id="s"><br>
+    <input type="file" accept=".png" name="test_file"><br>
+    <input type="submit" value="Upload Image"><br>
+  </form>
+  <p>Scorch Test</p>
+  <form action="scorch/" method="post" enctype="multipart/form-data"> {% csrf_token %}
+    <input type="text" name="sample" id="s"><br>
+    <input type="file" accept=".png" name="test_file"><br>
     <input type="submit" value="Upload Image"><br>
   </form>
 </body>

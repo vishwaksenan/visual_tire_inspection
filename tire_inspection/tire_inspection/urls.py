@@ -20,5 +20,6 @@ from admin_app import views as admin_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',admin_view.tire_test_view,name='tire_testing_homepage'),
-	path('result/',admin_view.ink_test_view,name='ink_test_result')
+	path('ink/',admin_view.ink_test_view,name='ink_test_result'),
+    path('scorch/',admin_view.scorch_test_view,name='scorch_test_result')
 ]
