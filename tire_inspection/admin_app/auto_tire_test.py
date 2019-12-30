@@ -46,3 +46,32 @@ class tire_testing:
             cv2.rectangle(img_rgb, pt, (pt[0] + w, pt[1] + h), (0,0,255), 2) 
             flag = 1
         return flag
+    
+    def wobbling_test(self,location):
+        """
+        Test checking the wobbling shape of the tire
+        """
+        frame = cv2.imread(location)
+        gray = cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
+        _, thresh = cv2.threshold(gray,150,200,0)
+        contours, _ = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
+        cv2.drawContours(frame,contours,-1,(0,255,0),3)
+        height = np.size(frame, 0)
+        width = np.size(frame, 1)
+        img_area = height * width
+        i=0
+        for contour in contours:
+            if i > 0:
+                area = cv2.contourArea(contour)
+                img_area = area
+            elif i > 1:
+                area = cv2.contourArea(contour)
+                img_area = img_area - area
+            i = i + 1
+        height = np.size(frame, 0)
+        width = np.size(frame, 1)
+        if img_area > 60000 and img_area < 50000:
+            flag = 0
+        else:
+            flag = 1
+        return flag

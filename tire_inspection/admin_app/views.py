@@ -38,3 +38,17 @@ def twi_test_view(request):
 		data = {}
 		data['result'] = result_of_twi_test
 	return render(request,"result.html",context=data)
+
+def wobbling_test_view(request):
+	"""
+	Wobbling test
+	"""
+	if(request.method == 'POST' and request.FILES['test_file']):
+		test_file = request.FILES['test_file']
+		fss = FileSystemStorage()
+		name = fss.save(test_file.name,test_file)
+		test = tire_testing()
+		result_of_wobbling_test = test.wobbling_test(fss.path(name))
+		data = {}
+		data['result'] = result_of_wobbling_test
+	return render(request,"result.html",context=data)
