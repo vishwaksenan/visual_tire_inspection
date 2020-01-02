@@ -3,12 +3,12 @@ import numpy as np
 
 class tire_testing:
     """
-    Class containing all the tire testing function
+    Class containing all the tire testing function.
     """
     def ink_test(self,location):
         """
-        Function checks the ink spillage in tire
-        Returns 0 or 1
+        Function checks the ink spillage in tire. 
+        Returns 0 or 1, 1 for defective.
         """
         frame = cv2.imread(location)
         gray = cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
@@ -28,11 +28,10 @@ class tire_testing:
         else:
             flag = 0
         return flag
-    
     def twi_test(self,location,template_of_twi):
         """
-        Function checks the scorch in tire
-        Returns 0 or 1
+        Function checks the scorch in tire. 
+        Returns 0 or 1, 1 for defective
         """
         img_rgb = cv2.imread(location)  
         img_gray = cv2.cvtColor(img_rgb, cv2.COLOR_BGR2GRAY)
@@ -49,7 +48,8 @@ class tire_testing:
     
     def wobbling_test(self,location):
         """
-        Test checking the wobbling shape of the tire
+        Test checking the wobbling shape of the tire.
+        Return 0 or 1, 1 for defective.
         """
         frame = cv2.imread(location)
         gray = cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
@@ -73,5 +73,20 @@ class tire_testing:
         if img_area > 60000 and img_area < 50000:
             flag = 0
         else:
+            flag = 1
+        return flag
+    def seperation_test(self,location):
+        """
+        Seperation test on the tire sides.
+        Return 0 or 1, 1 for defective.
+        """
+        frame = cv2.imread(location)
+        edges = cv2.Canny(frame,300,150)
+        count = 0
+        flag = 0
+        for ls in edges:
+            if 255 in ls:
+                count = count + 1
+        if count == 80:
             flag = 1
         return flag
