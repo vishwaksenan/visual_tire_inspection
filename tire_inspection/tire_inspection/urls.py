@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from admin_app import views as admin_view
+from django.conf.urls.static import static
+from . import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,4 +25,4 @@ urlpatterns = [
 	path('ink/',admin_view.ink_test_view,name='ink_test_result'),
     path('twi/',admin_view.twi_test_view,name='scorch_test_result'),
     path('wobbling/',admin_view.wobbling_test_view,name='wobbling_test_result')
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

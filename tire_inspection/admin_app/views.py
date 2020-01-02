@@ -6,7 +6,7 @@ from django.core.files.storage import FileSystemStorage
 # Create your views here.
 def tire_test_view(request):
 	"""
-	hello
+	Home Page Rendering
 	"""
 	return render(request,"index.html",context={})
 
